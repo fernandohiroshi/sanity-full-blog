@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -55,11 +56,14 @@ const ArticlesSection = () => {
                   />
                 </div>
 
-                <CardContent className="flex flex-col gap-3 py-5">
+                <CardContent className="flex flex-col gap-1.5 py-3.5">
                   <div className="inline-flex items-center gap-2 text-xs font-medium text-muted-foreground">
-                    <span className="rounded-full bg-muted px-2 py-0.5 text-[11px] uppercase tracking-wide">
+                    <Badge
+                      variant="outline"
+                      className="rounded-full bg-muted px-2 py-[2px] text-[10px] uppercase tracking-wide border-0 leading-none"
+                    >
                       {featuredArticle.category}
-                    </span>
+                    </Badge>
                     <span>{featuredArticle.date}</span>
                   </div>
 
@@ -169,11 +173,11 @@ const ArticlesSection = () => {
             <div className="space-y-3">
               <h3 className="text-sm md:text-base font-semibold tracking-tight">Recentes</h3>
 
-              <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-2">
                 {recentArticles.map((article) => (
                   <Link key={article.title} href={article.href} className="block h-full">
                     <Card className="overflow-hidden p-0 flex h-full flex-col shadow-sm transition-colors hover:bg-muted/40 hover:shadow-md">
-                      <div className="relative aspect-16/11 w-full overflow-hidden">
+                      <div className="relative aspect-16/10 w-full overflow-hidden">
                         <Image
                           src={article.image}
                           alt={article.title}
@@ -182,13 +186,16 @@ const ArticlesSection = () => {
                           sizes="(min-width: 1024px) 420px, 100vw"
                         />
                       </div>
-                      <CardContent className="flex flex-1 flex-col gap-1.5 py-3">
-                        <div className="inline-flex items-center gap-2 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">
-                          <span className="rounded-full bg-muted px-2 py-0.5 text-[10px]">
+                      <CardContent className="flex flex-1 flex-col gap-1 pt-1.5 pb-3">
+                        <div className="inline-flex items-center gap-1.5 text-[9px] font-medium text-muted-foreground uppercase tracking-wide">
+                          <Badge
+                            variant="outline"
+                            className="rounded-full bg-muted px-1.5 py-px text-[9px] border-0 leading-none"
+                          >
                             {article.category}
-                          </span>
+                          </Badge>
                         </div>
-                        <h4 className="text-xs sm:text-sm font-semibold leading-snug line-clamp-3">
+                        <h4 className="text-xs sm:text-sm font-semibold leading-snug line-clamp-2">
                           {article.title}
                         </h4>
                         <p className="text-[11px] text-muted-foreground">{article.date}</p>
@@ -247,29 +254,32 @@ const ArticlesSection = () => {
                   Próximos destaques
                 </p>
                 <div className="space-y-2 pt-1.5">
-                  {upcomingHighlights.map((item) => (
+                  {upcomingHighlights.map((article) => (
                     <div
-                      key={item.title}
+                      key={article.title}
                       className="flex items-center gap-3 rounded-lg border bg-background/90 p-2.5 text-left shadow-sm transition-colors hover:bg-muted/40 hover:shadow-md"
                     >
                       <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md border bg-muted sm:h-14 sm:w-14">
                         <Image
-                          src={item.image}
-                          alt={item.title}
+                          src={article.image}
+                          alt={article.title}
                           fill
                           sizes="56px"
                           className="object-cover transition-transform duration-500 ease-out hover:scale-110"
                         />
                       </div>
                       <div className="space-y-0.5">
-                        <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-                          {item.tag}
-                        </p>
+                        <Badge
+                          variant="outline"
+                          className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground border-0 px-1.5 py-px bg-muted/70 w-fit leading-none"
+                        >
+                          {article.category}
+                        </Badge>
                         <p className="text-xs sm:text-sm font-semibold leading-snug line-clamp-3">
-                          {item.title}
+                          {article.title}
                         </p>
                         <p className="text-[10px] sm:text-[11px] text-muted-foreground">
-                          {item.info}
+                          {article.date}
                         </p>
                       </div>
                     </div>

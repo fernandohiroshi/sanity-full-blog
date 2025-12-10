@@ -13,7 +13,7 @@ const Footer = () => {
     <footer className="mt-10 border-t bg-neutral-100/60 py-9 text-sm dark:bg-neutral-900/60">
       <div className="max flex flex-col gap-9 md:flex-row md:items-start md:justify-between">
         <div className="space-y-4 max-w-xs">
-          <h2 className="text-base font-semibold tracking-tight">Silvana Canal</h2>
+          <h2 className="text-base font-semibold tracking-tight">Contato</h2>
           <p className="text-xs text-muted-foreground">
             Histórias, reflexões e experiências em Foz do Iguaçu para inspirar jornadas mais
             conscientes.
@@ -21,15 +21,11 @@ const Footer = () => {
 
           <div className="space-y-1.5 text-xs">
             <p>
-              <span className="font-medium">E-mail: </span>
               <a href="mailto:silvana@gmail.com" className="hover:underline">
-                silvana@gmail.com
+                silvanacanal@email.com
               </a>
             </p>
-            <p>
-              <span className="font-medium">Endereço: </span>
-              Foz do Iguaçu, Paraná – Brasil
-            </p>
+            <p>Foz do Iguaçu, Paraná – Brasil</p>
           </div>
         </div>
 

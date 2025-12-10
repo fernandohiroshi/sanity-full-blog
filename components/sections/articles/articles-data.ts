@@ -1,4 +1,21 @@
-export const featuredArticle = {
+export type ArticleCard = {
+  title: string
+  category?: string
+  date: string
+  readTime?: string
+  href: string
+  image: string
+  excerpt?: string
+}
+
+export type HighlightCard = {
+  title: string
+  category: string
+  date: string
+  image: string
+}
+
+export const featuredArticle: ArticleCard = {
   category: 'Turismo',
   title: 'Roteiro essencial para viver Foz do Iguaçu além das Cataratas',
   excerpt:
@@ -10,7 +27,7 @@ export const featuredArticle = {
     'https://images.unsplash.com/photo-1593322961249-02a0734ce116?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 }
 
-export const popularArticles = [
+export const popularArticles: ArticleCard[] = [
   {
     title: 'Como o turismo de fronteira movimenta a economia local em Foz do Iguaçu',
     date: '08 de novembro, 2024',
@@ -66,7 +83,7 @@ export const mainCategoryLabels: string[] = [
   'Viagens',
 ]
 
-export const recentArticles = [
+export const recentArticles: ArticleCard[] = [
   {
     category: 'Turismo',
     title: 'Trilhas, mirantes e turismo consciente no entorno do Parque Nacional do Iguaçu',
@@ -139,43 +156,34 @@ export const recentArticles = [
     image:
       'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80',
   },
-  {
-    category: 'Argentina',
-    title: 'Passeios em Puerto Iguazú: gastronomia, feiras e vistas privilegiadas do Rio Iguaçu',
-    date: '14 de outubro, 2024',
-    readTime: '4 min de leitura',
-    href: '#',
-    image:
-      'https://plus.unsplash.com/premium_photo-1683121624323-0c5bf3ca6af2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
 ]
 
-export const upcomingHighlights = [
+export const upcomingHighlights: HighlightCard[] = [
   {
-    tag: 'Evento',
+    category: 'Evento',
     title: 'Encontro ao pôr do sol nas margens do Rio Iguaçu',
-    info: 'Dezembro, 2025',
+    date: 'Dezembro, 2025',
     image:
       'https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=400&q=80',
   },
   {
-    tag: 'Gastronomia',
+    category: 'Gastronomia',
     title: 'Roteiro gastronômico pela tríplice fronteira',
-    info: 'Em breve',
+    date: 'Em breve',
     image:
       'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=400&q=80',
   },
   {
-    tag: 'Evento',
+    category: 'Evento',
     title: 'Caminhada guiada pelo centro histórico de Foz',
-    info: 'Janeiro, 2026',
+    date: 'Janeiro, 2026',
     image:
       'https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?auto=format&fit=crop&w=400&q=80',
   },
   {
-    tag: 'Gastronomia',
+    category: 'Gastronomia',
     title: 'Noite de sabores da fronteira em família',
-    info: 'Datas especiais ao longo do ano',
+    date: 'Datas especiais ao longo do ano',
     image:
       'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=400&q=80',
   },

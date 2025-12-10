@@ -15,7 +15,8 @@ import {
 } from '@/components/ui/sheet'
 import { Menu } from 'lucide-react'
 
-import { mainLinks, categoryLinks, socialLinks } from './side-menu-data'
+import { categories } from '@/components/sections/articles/articles-data'
+import { mainLinks, socialLinks } from './side-menu-data'
 
 export const SideMenu = () => {
   return (
@@ -53,17 +54,19 @@ export const SideMenu = () => {
             <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
               Categorias
             </p>
-            {categoryLinks.map((link) => (
-              <Button
-                key={link.href}
-                variant="ghost"
-                size="sm"
-                className="w-full justify-start"
-                asChild
-              >
-                <Link href={link.href}>{link.label}</Link>
-              </Button>
-            ))}
+            <div className="grid grid-cols-2 gap-2">
+              {categories.map((category) => (
+                <Button
+                  key={category.label}
+                  variant="ghost"
+                  size="sm"
+                  className="justify-start text-xs"
+                  asChild
+                >
+                  <Link href="#blog">{category.label}</Link>
+                </Button>
+              ))}
+            </div>
           </div>
         </nav>
 
