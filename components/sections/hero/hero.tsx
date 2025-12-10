@@ -12,7 +12,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import { AuroraText } from '@/components/ui/aurora-text'
 
 const images = [
   {
@@ -43,11 +42,8 @@ const HeroSection = () => {
   return (
     <section className="w-full flex justify-center">
       <div className="w-full max-w-5xl space-y-4">
-        <div className="px-4 pt-4 sm:px-0 sm:pt-6 space-y-1 text-center">
-          <AuroraText className="block text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
-            Silvana Canal
-          </AuroraText>
-          <p className="text-[11px] sm:text-xs font-medium tracking-[0.3em] uppercase text-muted-foreground">
+        <div className="px-4 pt-4 sm:px-0 sm:pt-6 text-center">
+          <p className="text-[11px] sm:text-xs md:text-sm font-medium tracking-[0.3em] uppercase text-muted-foreground">
             Marketing e assessoria de imprensa
           </p>
         </div>

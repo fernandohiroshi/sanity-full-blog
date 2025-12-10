@@ -17,12 +17,9 @@ const AboutSection = () => {
         </div>
 
         <div className="space-y-4 md:space-y-5">
-          <p className="text-xs font-medium tracking-[0.25em] text-muted-foreground uppercase">
+          <p className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-foreground uppercase">
             Sobre
           </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-            Uma vida inteira contando boas histórias
-          </h2>
           <div className="space-y-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
             <p>
               Eu garanto que você tem uma história pra contar. Sobre a sua vida, dos seus filhos ou
