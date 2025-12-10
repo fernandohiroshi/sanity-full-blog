@@ -1,5 +1,5 @@
 export const featuredArticle = {
-  category: 'Turismo & viagens',
+  category: 'Turismo',
   title: 'Roteiro essencial para viver Foz do Iguaçu além das Cataratas',
   excerpt:
     'Da trilha às margens do Rio Iguaçu ao pôr do sol na tríplice fronteira, um passeio que conecta natureza, cultura e a rotina de quem vive aqui.',
@@ -18,6 +18,7 @@ export const popularArticles = [
     href: '#',
     image:
       'https://images.unsplash.com/photo-1584132905271-512c958d674a?auto=format&fit=crop&w=400&q=80',
+    category: 'Turismo',
   },
   {
     title: 'Gastronomia da tríplice fronteira: sabores que contam histórias de três países',
@@ -26,6 +27,7 @@ export const popularArticles = [
     href: '#',
     image:
       'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80',
+    category: 'Gastronomia',
   },
   {
     title: 'Eventos, feiras e congressos: por que Foz virou referência em turismo de negócios',
@@ -34,29 +36,39 @@ export const popularArticles = [
     href: '#',
     image:
       'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=400&q=80',
+    category: 'Evento',
   },
 ]
 
 export const categories = [
-  { label: 'Turismo & viagens' },
-  { label: 'Notícias' },
+  { label: 'Noticias' },
+  { label: 'Turismo' },
   { label: 'Hotelaria' },
-  { label: 'Cultura & eventos' },
-  { label: 'Economia & negócios' },
-  { label: 'Turismo sustentável' },
-  { label: 'Gastronomia & sabores' },
-  { label: 'Bem-estar & autocuidado' },
-  { label: 'Histórias da fronteira' },
-  { label: 'Experiências locais' },
-  { label: 'Família & encontros' },
-  { label: 'Negócios do turismo' },
+  { label: 'Viagens' },
+  { label: 'Evento' },
+  { label: 'Gastronomia' },
+  { label: 'Historias' },
+  { label: 'Tecnologia' },
+  { label: 'Economia' },
+  { label: 'Life Style' },
+  { label: 'Paraguai' },
+  { label: 'Argentina' },
+  { label: 'Saude' },
+  { label: 'Moda' },
+  { label: 'Acao Social' },
 ]
 
-export const mainCategoryLabels: string[] = ['Turismo & viagens', 'Notícias', 'Hotelaria']
+export const mainCategoryLabels: string[] = [
+  'Noticias',
+  'Turismo',
+  'Hotelaria',
+  'Evento',
+  'Viagens',
+]
 
 export const recentArticles = [
   {
-    category: 'Turismo sustentável',
+    category: 'Turismo',
     title: 'Trilhas, mirantes e turismo consciente no entorno do Parque Nacional do Iguaçu',
     date: '10 de novembro, 2024',
     readTime: '6 min de leitura',
@@ -65,7 +77,7 @@ export const recentArticles = [
       'https://images.unsplash.com/photo-1751849685221-d94f7e10d1dd?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
-    category: 'Cultura & eventos',
+    category: 'Evento',
     title: 'Noite na fronteira: festivais, música e arte que movimentam Foz e região',
     date: '02 de novembro, 2024',
     readTime: '5 min de leitura',
@@ -83,7 +95,7 @@ export const recentArticles = [
       'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80',
   },
   {
-    category: 'Economia & negócios',
+    category: 'Economia',
     title: 'Como pequenos negócios locais se reinventam com o turismo de experiência',
     date: '18 de outubro, 2024',
     readTime: '6 min de leitura',
@@ -91,11 +103,56 @@ export const recentArticles = [
     image:
       'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80',
   },
+  {
+    category: 'Noticias',
+    title: 'Novo terminal turístico promete modernizar a recepção de visitantes em Foz do Iguaçu',
+    date: '12 de novembro, 2024',
+    readTime: '4 min de leitura',
+    href: '#',
+    image:
+      'https://images.unsplash.com/photo-1526779259212-939e64788e3c?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    category: 'Hotelaria',
+    title: 'Pousadas familiares ganham espaço ao oferecer experiências personalizadas na fronteira',
+    date: '05 de novembro, 2024',
+    readTime: '5 min de leitura',
+    href: '#',
+    image:
+      'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    category: 'Life Style',
+    title: 'Rotina de quem escolheu viver perto das Cataratas: trabalho, lazer e conexões diárias',
+    date: '28 de outubro, 2024',
+    readTime: '6 min de leitura',
+    href: '#',
+    image:
+      'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    category: 'Paraguai',
+    title: 'Compras inteligentes no Paraguai: dicas para unir economia, segurança e turismo',
+    date: '20 de outubro, 2024',
+    readTime: '5 min de leitura',
+    href: '#',
+    image:
+      'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    category: 'Argentina',
+    title: 'Passeios em Puerto Iguazú: gastronomia, feiras e vistas privilegiadas do Rio Iguaçu',
+    date: '14 de outubro, 2024',
+    readTime: '4 min de leitura',
+    href: '#',
+    image:
+      'https://plus.unsplash.com/premium_photo-1683121624323-0c5bf3ca6af2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  },
 ]
 
 export const upcomingHighlights = [
   {
-    tag: 'Eventos',
+    tag: 'Evento',
     title: 'Encontro ao pôr do sol nas margens do Rio Iguaçu',
     info: 'Dezembro, 2025',
     image:
@@ -109,7 +166,7 @@ export const upcomingHighlights = [
       'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=400&q=80',
   },
   {
-    tag: 'Eventos',
+    tag: 'Evento',
     title: 'Caminhada guiada pelo centro histórico de Foz',
     info: 'Janeiro, 2026',
     image:

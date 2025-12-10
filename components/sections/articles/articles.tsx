@@ -23,6 +23,7 @@ import {
   recentArticles,
   upcomingHighlights,
 } from './articles-data'
+
 const ArticlesSection = () => {
   return (
     <section className="w-full flex justify-center py-16">
@@ -32,26 +33,24 @@ const ArticlesSection = () => {
             Dentro do mais recente
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">
-            Artigos para respirar, sentir e se reconhecer
+            Turismo e notícias da tríplice fronteira
           </h2>
           <p className="max-w-2xl mx-auto md:mx-0 text-muted-foreground text-xs sm:text-sm md:text-base">
-            Reflexões, histórias e convites à pausa para quem deseja caminhar com mais consciência,
-            leveza e verdade consigo mesma.
+            Conteúdos jornalísticos com notícias, bastidores da hotelaria, eventos e informações de
+            Foz do Iguaçu e região.
           </p>
         </header>
 
-        {/* Destaque + mais lidos */}
-        <div className="grid gap-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] items-start">
-          {/* Artigo em destaque */}
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] items-start">
           <Link href={featuredArticle.href} className="block h-full">
-            <Card className="h-full overflow-hidden p-0 transition hover:-translate-y-0.5 hover:shadow-md">
+            <Card className="h-full overflow-hidden p-0 shadow-sm transition-colors hover:bg-muted/40 hover:shadow-md">
               <div className="grid h-full gap-0 md:grid-rows-[auto_minmax(0,1fr)]">
                 <div className="relative aspect-16/8 w-full overflow-hidden">
                   <Image
                     src={featuredArticle.image}
                     alt={featuredArticle.title}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                     sizes="(min-width: 1024px) 720px, 100vw"
                   />
                 </div>
@@ -61,12 +60,10 @@ const ArticlesSection = () => {
                     <span className="rounded-full bg-muted px-2 py-0.5 text-[11px] uppercase tracking-wide">
                       {featuredArticle.category}
                     </span>
-                    <span>
-                      {featuredArticle.date} • {featuredArticle.readTime}
-                    </span>
+                    <span>{featuredArticle.date}</span>
                   </div>
 
-                  <h3 className="text-lg md:text-xl font-semibold leading-snug">
+                  <h3 className="text-lg md:text-xl font-semibold leading-snug line-clamp-3">
                     {featuredArticle.title}
                   </h3>
 
@@ -78,7 +75,6 @@ const ArticlesSection = () => {
             </Card>
           </Link>
 
-          {/* Mais populares */}
           <div className="space-y-4">
             <div className="space-y-3">
               <div className="relative">
@@ -91,9 +87,6 @@ const ArticlesSection = () => {
                   <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
                     Em destaque
                   </p>
-                  <h3 className="text-base md:text-lg font-semibold tracking-tight">
-                    Textos mais procurados
-                  </h3>
                 </div>
                 <Button
                   variant="outline"
@@ -105,25 +98,23 @@ const ArticlesSection = () => {
               </div>
             </div>
 
-            <div className="space-y-2.5">
+            <div className="space-y-3">
               {popularArticles.map((article) => (
                 <Link key={article.title} href={article.href} className="block">
-                  <Card className="p-0 transition hover:-translate-y-0.5 hover:shadow-md">
-                    <CardHeader className="flex flex-row items-center gap-3 py-3">
-                      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md border bg-muted sm:h-16 sm:w-16">
+                  <Card className="p-0 shadow-sm transition-colors hover:bg-muted/40 hover:shadow-md">
+                    <CardHeader className="flex flex-row items-center gap-3 py-5">
+                      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-md border bg-muted sm:h-20 sm:w-20">
                         <Image
                           src={article.image}
                           alt={article.title}
                           fill
-                          sizes="64px"
-                          className="object-cover"
+                          sizes="80px"
+                          className="object-cover transition-transform duration-500 ease-out hover:scale-110"
                         />
                       </div>
                       <div className="space-y-1">
-                        <p className="text-[11px] text-muted-foreground">
-                          {article.date} • {article.readTime}
-                        </p>
-                        <CardTitle className="text-xs sm:text-sm font-semibold leading-snug">
+                        <p className="text-[11px] text-muted-foreground">{article.date}</p>
+                        <CardTitle className="text-xs sm:text-sm font-semibold leading-snug line-clamp-3">
                           {article.title}
                         </CardTitle>
                       </div>
@@ -145,10 +136,10 @@ const ArticlesSection = () => {
               <div className="flex flex-wrap items-center gap-3">
                 <div className="w-full max-w-xs sm:w-auto">
                   <Select>
-                    <SelectTrigger className="h-9 text-sm">
-                      <SelectValue placeholder="Selecione uma categoria" />
+                    <SelectTrigger className="h-8 text-sm">
+                      <SelectValue placeholder="Outras categorias" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="max-h-56 overflow-y-auto">
                       {categories
                         .filter((category) => !mainCategoryLabels.includes(category.label))
                         .map((category) => (
@@ -175,34 +166,32 @@ const ArticlesSection = () => {
               </div>
             </div>
 
-            <div className="space-y-4">
-              <h3 className="text-base md:text-lg font-semibold tracking-tight">Recentes</h3>
+            <div className="space-y-3">
+              <h3 className="text-sm md:text-base font-semibold tracking-tight">Recentes</h3>
 
-              <div className="grid gap-4 md:grid-cols-2">
+              <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
                 {recentArticles.map((article) => (
                   <Link key={article.title} href={article.href} className="block h-full">
-                    <Card className="overflow-hidden p-0 flex h-full flex-col transition hover:-translate-y-0.5 hover:shadow-md">
-                      <div className="relative aspect-16/10 w-full overflow-hidden">
+                    <Card className="overflow-hidden p-0 flex h-full flex-col shadow-sm transition-colors hover:bg-muted/40 hover:shadow-md">
+                      <div className="relative aspect-16/11 w-full overflow-hidden">
                         <Image
                           src={article.image}
                           alt={article.title}
                           fill
-                          className="object-cover"
+                          className="object-cover transition-transform duration-500 ease-out hover:scale-105"
                           sizes="(min-width: 1024px) 420px, 100vw"
                         />
                       </div>
-                      <CardContent className="flex flex-1 flex-col gap-2 py-4">
-                        <div className="inline-flex items-center gap-2 text-[11px] font-medium text-muted-foreground uppercase tracking-wide">
-                          <span className="rounded-full bg-muted px-2 py-0.5">
+                      <CardContent className="flex flex-1 flex-col gap-1.5 py-3">
+                        <div className="inline-flex items-center gap-2 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">
+                          <span className="rounded-full bg-muted px-2 py-0.5 text-[10px]">
                             {article.category}
                           </span>
                         </div>
-                        <h4 className="text-sm md:text-base font-semibold leading-snug">
+                        <h4 className="text-xs sm:text-sm font-semibold leading-snug line-clamp-3">
                           {article.title}
                         </h4>
-                        <p className="text-xs text-muted-foreground">
-                          {article.date} {article.readTime}
-                        </p>
+                        <p className="text-[11px] text-muted-foreground">{article.date}</p>
                       </CardContent>
                     </Card>
                   </Link>
@@ -249,7 +238,7 @@ const ArticlesSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-dashed bg-muted/40">
+            <Card className="border-dashed bg-muted/40 shadow-sm transition-colors hover:bg-muted/60 hover:shadow-md">
               <CardContent className="py-5 flex flex-col gap-3">
                 <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground">
                   Eventos & gastronomia
@@ -261,7 +250,7 @@ const ArticlesSection = () => {
                   {upcomingHighlights.map((item) => (
                     <div
                       key={item.title}
-                      className="flex items-center gap-3 rounded-lg border bg-background/90 p-2.5 text-left shadow-sm"
+                      className="flex items-center gap-3 rounded-lg border bg-background/90 p-2.5 text-left shadow-sm transition-colors hover:bg-muted/40 hover:shadow-md"
                     >
                       <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md border bg-muted sm:h-14 sm:w-14">
                         <Image
@@ -269,14 +258,14 @@ const ArticlesSection = () => {
                           alt={item.title}
                           fill
                           sizes="56px"
-                          className="object-cover"
+                          className="object-cover transition-transform duration-500 ease-out hover:scale-110"
                         />
                       </div>
                       <div className="space-y-0.5">
                         <p className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
                           {item.tag}
                         </p>
-                        <p className="text-xs sm:text-sm font-semibold leading-snug line-clamp-2">
+                        <p className="text-xs sm:text-sm font-semibold leading-snug line-clamp-3">
                           {item.title}
                         </p>
                         <p className="text-[10px] sm:text-[11px] text-muted-foreground">

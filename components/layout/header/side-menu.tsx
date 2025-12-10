@@ -13,21 +13,9 @@ import {
   SheetDescription,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { Menu, Instagram, Linkedin, Twitter, Facebook } from 'lucide-react'
+import { Menu } from 'lucide-react'
 
-const mainLinks = [
-  { href: '#sobre', label: 'Sobre' },
-  { href: '#blog', label: 'Blog' },
-  { href: '#contato', label: 'Contato' },
-]
-
-const categoryLinks = [
-  { href: '#turismo', label: 'Turismo' },
-  { href: '#noticias', label: 'Notícias' },
-  { href: '#eventos', label: 'Eventos' },
-  { href: '#gastronomia', label: 'Gastronomia' },
-  { href: '#hoteis', label: 'Hotéis' },
-]
+import { mainLinks, categoryLinks, socialLinks } from './side-menu-data'
 
 export const SideMenu = () => {
   return (
@@ -82,26 +70,19 @@ export const SideMenu = () => {
         <div className="space-y-2.5 text-sm">
           <p className="text-xs font-semibold text-muted-foreground">Redes sociais</p>
           <div className="flex flex-wrap gap-2">
-            <Button variant="outline" size="icon" className="h-8 w-8 rounded-full" asChild>
-              <Link href="#" aria-label="Instagram">
-                <Instagram className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button variant="outline" size="icon" className="h-8 w-8 rounded-full" asChild>
-              <Link href="#" aria-label="LinkedIn">
-                <Linkedin className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button variant="outline" size="icon" className="h-8 w-8 rounded-full" asChild>
-              <Link href="#" aria-label="X (Twitter)">
-                <Twitter className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button variant="outline" size="icon" className="h-8 w-8 rounded-full" asChild>
-              <Link href="#" aria-label="Facebook">
-                <Facebook className="h-4 w-4" />
-              </Link>
-            </Button>
+            {socialLinks.map((social) => (
+              <Button
+                key={social.label}
+                variant="outline"
+                size="icon"
+                className="h-8 w-8 rounded-full"
+                asChild
+              >
+                <Link href={social.href} aria-label={social.label}>
+                  <social.icon className="h-4 w-4" />
+                </Link>
+              </Button>
+            ))}
           </div>
         </div>
 
