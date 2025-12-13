@@ -168,7 +168,7 @@ export const ArticlesSectionClient = ({
             <Socials />
 
             <Card className="border-dashed bg-muted/40 shadow-sm transition-colors hover:bg-muted/60 hover:shadow-md">
-              <CardContent className="py-5 flex flex-col gap-3">
+              <CardContent className="py-5 flex flex-col gap-3 px-2">
                 <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground">
                   Eventos & gastronomia
                 </p>

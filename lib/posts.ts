@@ -28,7 +28,8 @@ const ARTICLES_QUERY = groq`*[_type == "post"] | order(date desc) {
   date,
   category,
   image,
-  "excerpt": pt::text(excerpt[0])[0..200]
+  // Usa o primeiro bloco do Portable Text do excerpt como resumo
+  "excerpt": coalesce(excerpt[0].children[0].text, "")
 }`
 
 export async function getPostBySlug(slug: string) {

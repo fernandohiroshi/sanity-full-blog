@@ -40,7 +40,7 @@ export const LastFeaturedArticles = ({ article }: LastFeaturedArticlesProps) => 
           </h3>
 
           {article.excerpt ? (
-            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 md:line-clamp-3">
               {article.excerpt}
             </p>
           ) : null}
@@ -59,8 +59,8 @@ export const FeaturedArticles = ({ articles }: FeaturedArticlesProps) => (
     {articles.map((article) => (
       <Link key={article.title} href={article.href} className="block">
         <Card className="p-0 shadow-sm transition-colors hover:bg-muted/40 hover:shadow-md">
-          <CardHeader className="flex flex-row items-center gap-3 py-3.5">
-            <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-md border bg-muted sm:h-28 sm:w-28">
+          <CardHeader className="flex flex-row items-center gap-3 py-3.5 px-2">
+            <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-md border bg-muted sm:h-24 sm:w-36">
               <Image
                 src={article.image}
                 alt={article.title}
@@ -70,9 +70,14 @@ export const FeaturedArticles = ({ articles }: FeaturedArticlesProps) => (
               />
             </div>
             <div className="space-y-0.5">
-              <CardTitle className="text-[10px] sm:text-[11px] font-medium leading-snug line-clamp-2">
+              <CardTitle className="text-[10px] sm:text-sm font-medium leading-snug line-clamp-2">
                 {article.title}
               </CardTitle>
+              {article.excerpt ? (
+                <p className="text-[11px] text-muted-foreground leading-snug line-clamp-2 md:line-clamp-3">
+                  {article.excerpt}
+                </p>
+              ) : null}
             </div>
           </CardHeader>
         </Card>

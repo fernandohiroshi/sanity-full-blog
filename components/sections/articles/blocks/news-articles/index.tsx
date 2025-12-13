@@ -37,6 +37,11 @@ export const NewsArticlesGrid = ({ articles }: NewsArticlesGridProps) => (
             <h4 className="text-xs sm:text-sm font-semibold leading-snug line-clamp-2">
               {article.title}
             </h4>
+            {article.excerpt ? (
+              <p className="text-[11px] text-muted-foreground leading-snug line-clamp-2">
+                {article.excerpt}
+              </p>
+            ) : null}
             <p className="text-[11px] text-muted-foreground">{article.date}</p>
           </CardContent>
         </Card>
