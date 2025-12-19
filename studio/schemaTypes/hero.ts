@@ -9,11 +9,8 @@ export const heroType = defineType({
       name: 'kind',
       title: 'Tipo de conteúdo',
       type: 'string',
-      options: {
-        list: [{title: 'Anúncio', value: 'ad'}],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
+      initialValue: 'ad',
+      hidden: true,
       description:
         'Escolha o tipo de conteúdo exibido na área de destaque (atualmente apenas anúncios externos).',
       validation: (Rule) => Rule.required(),

@@ -1,15 +1,23 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 
 import { getImageUrl } from '@/lib/sanity'
 import { PostPortableText } from '@/components/post-portable-text'
+import { RelatedArticles } from '@/components/related-articles'
+import { getRelatedArticlesByCategory } from '@/lib/posts'
 import { getPostPageData } from './data'
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
 
   const post = await getPostPageData(slug)
+
+  const relatedArticles = await getRelatedArticlesByCategory(
+    post.category,
+    post.slug?.current ?? '',
+  )
 
   const formattedDate = post.date
     ? format(new Date(post.date), "d 'de' MMMM 'de' yyyy", { locale: ptBR })
@@ -19,13 +27,22 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     <main className="py-10">
       <div className="max-w-7xl mx-auto">
         <article className="max-w-3xl mx-auto px-4 space-y-6">
+          <div className="mb-2">
+            <Link
+              href="/blog"
+              className="inline-flex items-center text-xs sm:text-sm text-muted-foreground hover:text-foreground hover:underline"
+            >
+              ← Voltar para o blog
+            </Link>
+          </div>
+
           <header className="space-y-3">
             {post.category && (
               <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
                 {post.category}
               </p>
             )}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[2rem] font-semibold tracking-tight leading-tight">
               {post.title}
             </h1>
             {formattedDate && (
@@ -45,8 +62,9 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               />
             </div>
           )}
-
           {post.excerpt && <PostPortableText value={post.excerpt} />}
+
+          <RelatedArticles articles={relatedArticles} />
         </article>
       </div>
     </main>

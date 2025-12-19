@@ -6,7 +6,7 @@ const TicketSection = () => {
   return (
     <section className="w-full pb-16">
       <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl">
-        <div className="relative aspect-16/6 w-full">
+        <div className="relative aspect-16/4 w-full">
           <video
             className="h-full w-full object-cover opacity-80"
             src="/ticket.mp4"
@@ -24,7 +24,7 @@ const TicketSection = () => {
             <p className="hidden md:block text-sm font-medium tracking-[0.3em] uppercase text-white/90">
               Foz do Iguaçu • experiências
             </p>
-            <h2 className="text-sm sm:text-base md:text-2xl lg:text-3xl font-semibold leading-snug text-white">
+            <h2 className="text-sm sm:text-base md:text-2xl font-semibold leading-snug text-white">
               Ingressos para as aventuras em <br /> Foz do Iguaçu?
             </h2>
             <div className="flex justify-center pt-1 sm:pt-2">

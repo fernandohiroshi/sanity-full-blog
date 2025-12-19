@@ -24,19 +24,11 @@ type ArticlesSectionClientProps = {
 export const ArticlesSectionClient = ({ articles, partners }: ArticlesSectionClientProps) => {
   return (
     <section className="w-full flex justify-center py-8 md:py-16">
-      <div className="max space-y-8">
-        <div>
-          <p className="text-xs sm:text-sm font-medium tracking-[0.2em] text-muted-foreground uppercase">
-            Entre os artigos mais recentes
-          </p>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight">
-            Turismo, notícias e bastidores da tríplice fronteira
-          </h2>
-          <p className="max-w-2xl mx-auto md:mx-0 text-muted-foreground text-xs sm:text-sm md:text-base">
-            Notícias, bastidores da hotelaria, experiências de viagem e eventos em Foz do Iguaçu e
-            na tríplice fronteira.
-          </p>
-        </div>
+      <div className="max space-y-4">
+        <p className="text-xs sm:text-sm font-medium tracking-[0.2em] text-muted-foreground uppercase ml-2">
+          Entre os artigos mais recentes
+        </p>
+
         <div className="grid gap-6 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.2fr)] items-start">
           <Link href={articles[0].href} className="block h-full" aria-label={articles[0].title}>
             <Card className="h-full overflow-hidden p-0 shadow-sm transition-colors hover:bg-muted/40 hover:shadow-md">
@@ -55,7 +47,7 @@ export const ArticlesSectionClient = ({ articles, partners }: ArticlesSectionCli
                     {articles[0].category ? (
                       <Badge
                         variant="outline"
-                        className="rounded-full bg-muted px-2 py-[2px] text-[10px] uppercase tracking-wide border-0 leading-none"
+                        className="rounded-full bg-muted px-3 py-[4px] text-[11px] uppercase tracking-wide border-0 leading-none"
                       >
                         {articles[0].category}
                       </Badge>
@@ -130,7 +122,7 @@ export const ArticlesSectionClient = ({ articles, partners }: ArticlesSectionCli
         </div>
         <div className="grid gap-8 lg:grid-cols-[minmax(0,2.2fr)_minmax(0,1.1fr)] items-stretch">
           <div className="space-y-6">
-            <div className="space-y-3">
+            <div className="space-y-3 mt-4">
               <p className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
                 Artigos recentes
               </p>
@@ -148,11 +140,11 @@ export const ArticlesSectionClient = ({ articles, partners }: ArticlesSectionCli
                         />
                       </div>
                       <CardContent className="flex flex-1 flex-col gap-1 pt-1.5 pb-3">
-                        <div className="inline-flex items-center gap-1.5 text-[9px] font-medium text-muted-foreground uppercase tracking-wide">
+                        <div className="inline-flex items-center gap-1.5 text-[10px] font-medium text-muted-foreground uppercase tracking-wide">
                           {article.category ? (
                             <Badge
                               variant="outline"
-                              className="rounded-full bg-muted px-1.5 py-px text-[9px] border-0 leading-none"
+                              className="rounded-full bg-muted px-2 py-[3px] text-[10px] border-0 leading-none"
                             >
                               {article.category}
                             </Badge>
@@ -178,11 +170,11 @@ export const ArticlesSectionClient = ({ articles, partners }: ArticlesSectionCli
           <div className="flex flex-col space-y-4 h-full">
             <Socials />
 
-            <div className="flex flex-col gap-3 px-2 mt-8">
+            <div className="flex flex-col gap-3 px-2">
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-muted-foreground pl-2">
                 Parceiros
               </p>
-              <div className="space-y-2 pt-1">
+              <div className="space-y-2">
                 {partners.map((partner, index) => (
                   <Link
                     key={`${partner.href}-${index}`}
@@ -192,14 +184,14 @@ export const ArticlesSectionClient = ({ articles, partners }: ArticlesSectionCli
                     rel="noreferrer"
                   >
                     <div className="flex justify-start py-1">
-                      <div className="relative h-43 w-full overflow-hidden rounded-lg">
+                      <div className="relative h-44 w-full overflow-hidden rounded-lg">
                         <Image
                           src={partner.image}
                           alt="Parceiro"
                           title="Click para visitar"
                           fill
                           sizes="(min-width: 1024px) 320px, 280px"
-                          className="object-cover object-top transition-transform duration-500 ease-out hover:scale-105 rounded-lg"
+                          className="object-cover w-full h-full transition-transform duration-500 ease-out hover:scale-105 rounded-lg"
                         />
                       </div>
                     </div>

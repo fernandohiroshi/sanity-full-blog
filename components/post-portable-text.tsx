@@ -113,7 +113,7 @@ type PostPortableTextProps = {
 }
 
 export const PostPortableText = ({ value }: PostPortableTextProps) => (
-  <div className="prose prose-sm sm:prose lg:prose-lg max-w-none wrap-break-word">
+  <div className="prose prose-sm sm:prose lg:prose-lg max-w-none wrap-break-word text-justify">
     <PortableText value={value} components={components} />
   </div>
 )

@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Twitter, Facebook } from 'lucide-react'
+import { Instagram, Twitter, Facebook } from 'lucide-react'
 import { mainArticleCategoryLabels } from '@/components/sections/articles/articles.config'
 
 export type NavLink = {
@@ -26,7 +26,6 @@ export const categoryLinks: NavLink[] = mainArticleCategoryLabels.map((label) =>
 
 export const socialLinks: SocialLink[] = [
   { href: '#', label: 'Instagram', icon: Instagram },
-  { href: '#', label: 'LinkedIn', icon: Linkedin },
   { href: '#', label: 'X (Twitter)', icon: Twitter },
   { href: '#', label: 'Facebook', icon: Facebook },
 ]

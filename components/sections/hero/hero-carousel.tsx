@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import Autoplay from 'embla-carousel-autoplay'
-import Link from 'next/link'
 import Image from 'next/image'
 
 import type { HeroAd } from '@/lib/hero'
@@ -26,13 +25,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ ads }) => {
   return (
     <section className="w-full flex justify-center">
       <div className="max space-y-4 w-full">
-        <div className="px-4 pt-4 sm:px-0 sm:pt-6 text-center">
-          <p className="text-[11px] sm:text-xs md:text-sm font-medium tracking-[0.3em] uppercase text-muted-foreground">
-            Marketing e assessoria de imprensa
-          </p>
-        </div>
-
-        <div className="overflow-hidden rounded-xl">
+        <div className="overflow-hidden rounded-xl mt-4">
           <Carousel
             className="relative w-full"
             plugins={[plugin.current]}
@@ -41,31 +34,19 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ ads }) => {
             <CarouselContent>
               {ads.map((ad, index) => (
                 <CarouselItem key={index} className="cursor-pointer">
-                  {ad.kind === 'ad' ? (
-                    <a href={ad.href} target="_blank" rel="noreferrer noopener">
-                      <div className="relative aspect-16/6">
-                        <Image
-                          src={ad.image}
-                          alt="Clique para ver mais"
-                          fill
-                          className="object-cover transition-transform duration-500 ease-out hover:scale-105"
-                          sizes="(min-width: 1024px) 900px, 100vw"
-                        />
-                      </div>
-                    </a>
-                  ) : (
-                    <Link href={ad.href}>
-                      <div className="relative aspect-16/6">
-                        <Image
-                          src={ad.image}
-                          alt="Clique para ver mais"
-                          fill
-                          className="object-cover transition-transform duration-500 ease-out hover:scale-105"
-                          sizes="(min-width: 1024px) 900px, 100vw"
-                        />
-                      </div>
-                    </Link>
-                  )}
+                  <a href={ad.href} target="_blank" rel="noreferrer noopener">
+                    <div className="relative aspect-16/4">
+                      <Image
+                        src={ad.image}
+                        alt="Clique para ver mais"
+                        fill
+                        className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                        sizes="(min-width: 1024px) 900px, 100vw"
+                        quality={100}
+                        priority
+                      />
+                    </div>
+                  </a>
                 </CarouselItem>
               ))}
             </CarouselContent>

@@ -7,8 +7,9 @@ import WhatsAppFloatButton from '@/components/whatsapp-button'
 import { ScrollToTop } from '@/components/scroll-to-top'
 
 export const metadata: Metadata = {
-  title: 'Silvana Canal',
-  description: 'Blog',
+  title: 'Blog - Agência de Notícias de Foz do Iguaçu',
+  description:
+    'Cobertura de notícias, turismo, cultura e cotidiano na região de Foz do Iguaçu e Tríplice Fronteira.',
 }
 
 export default function RootLayout({

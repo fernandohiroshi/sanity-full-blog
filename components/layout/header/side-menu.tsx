@@ -36,7 +36,8 @@ export const SideMenu = () => {
         <SheetHeader className="items-start text-left space-y-2">
           <SheetTitle className="text-base sm:text-lg font-semibold">Navegar</SheetTitle>
           <SheetDescription className="text-xs text-muted-foreground">
-            Explore conteúdos, conheça mais sobre a Silvana e entre em contato.
+            Explore conteúdos do Blog, descubra novas histórias e encontre maneiras de entrar em
+            contato.
           </SheetDescription>
         </SheetHeader>
 

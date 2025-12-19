@@ -32,7 +32,7 @@ export const articleType = defineType({
       name: 'image',
       title: 'Imagem',
       type: 'image',
-      description: 'Imagem de destaque do artigo (máximo 1MB). Será usada na capa e nas listagens.',
+      description: 'Imagem de destaque do artigo (máximo 3MB). Será usada na capa e nas listagens.',
       validation: (Rule) =>
         Rule.required().custom(async (image, context) => {
           const ref = (image as any)?.asset?._ref
@@ -43,8 +43,8 @@ export const articleType = defineType({
 
           if (!asset?.size) return true
 
-          const maxBytes = 1 * 1024 * 1024 // 1MB
-          return asset.size <= maxBytes || 'A imagem deve ter no máximo 1MB.'
+          const maxBytes = 3 * 1024 * 1024 // 3MB
+          return asset.size <= maxBytes || 'A imagem deve ter no máximo 3MB.'
         }),
     }),
 

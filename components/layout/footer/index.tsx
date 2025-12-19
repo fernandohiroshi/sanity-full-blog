@@ -20,14 +20,14 @@ const Footer = () => {
           <div className="space-y-4 max-w-xs">
             <h2 className="text-base font-semibold tracking-tight">Contato</h2>
             <p className="text-xs text-muted-foreground">
-              Histórias, reflexões e experiências em Foz do Iguaçu para inspirar jornadas mais
-              conscientes.
+              Agência de notícias independente em Foz do Iguaçu, com cobertura de turismo, cultura,
+              economia e cotidiano na Tríplice Fronteira.
             </p>
 
             <div className="space-y-1.5 text-xs">
               <p>
-                <a href="mailto:silvana@gmail.com" className="hover:underline">
-                  silvanacanal@email.com
+                <a href="mailto:contato@blogfoz.com" className="hover:underline">
+                  contato@blogfoz.com
                 </a>
               </p>
               <p>Foz do Iguaçu, Paraná – Brasil</p>
@@ -48,17 +48,17 @@ const Footer = () => {
           </div>
 
           <div className="space-y-3">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground pl-1">
               Buscar no blog
             </p>
             <BlogSearchForm className="w-full max-w-xs" />
           </div>
 
           <div className="space-y-3">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+            <p className="text-center text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
               Redes sociais
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap justify-center gap-2">
               {socialLinks.map((social) => (
                 <Button
                   key={social.label}
@@ -79,7 +79,10 @@ const Footer = () => {
         <>
           <Separator className="my-2" />
           <div className="flex items-center justify-between gap-4 text-[11px] text-muted-foreground">
-            <p>© {new Date().getFullYear()} Silvana Canal. Todos os direitos reservados.</p>
+            <p>
+              © {new Date().getFullYear()} Blog · Agência de Notícias de Foz do Iguaçu. Todos os
+              direitos reservados.
+            </p>
             <Button
               variant="outline"
               size="icon"

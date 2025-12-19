@@ -12,10 +12,10 @@ export default function Home() {
       <HeroSection />
       <Suspense
         fallback={
-          <section className="py-8 space-y-6">
+          <section className="py-10 space-y-6">
             <div className="space-y-2 max-w-4xl mx-auto px-4">
-              <Skeleton className="h-5 w-32" />
-              <Skeleton className="h-8 w-64" />
+              <Skeleton className="h-4 w-32" />
+              <Skeleton className="h-7 w-56" />
             </div>
 
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 px-4 max-w-7xl mx-auto">

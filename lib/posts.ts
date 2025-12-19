@@ -21,6 +21,16 @@ const POST_BY_SLUG_QUERY = groq`*[_type == "post" && slug.current == $slug][0] {
   excerpt
 }`
 
+const RELATED_ARTICLES_QUERY = groq`*[_type == "post" && category == $category && slug.current != $slug] | order(date desc)[0...3] {
+  _id,
+  title,
+  slug,
+  date,
+  category,
+  image,
+  "excerpt": coalesce(excerpt[0].children[0].text, "")
+}`
+
 const ARTICLES_QUERY = groq`*[_type == "post"] | order(date desc) {
   _id,
   title,
@@ -41,6 +51,30 @@ export async function getArticlesForCards(): Promise<ArticleCard[]> {
     await sanityFetch<
       (SanityPostBase & { image?: { asset?: { _ref?: string } }; excerpt?: string })[]
     >(ARTICLES_QUERY)
+
+  const articles: ArticleCard[] = data
+    .filter((item) => item.slug?.current && item.image?.asset?._ref)
+    .map((item) => ({
+      title: item.title,
+      category: item.category,
+      href: `/${item.slug!.current!}`,
+      date: item.date ? format(new Date(item.date), 'dd/MM/yyyy', { locale: ptBR }) : '',
+      image: getImageUrl(item.image!.asset!._ref, 800, 450),
+      excerpt: item.excerpt,
+    }))
+
+  return articles
+}
+
+export async function getRelatedArticlesByCategory(
+  category: string | undefined,
+  slug: string,
+): Promise<ArticleCard[]> {
+  if (!category) return []
+
+  const data = await sanityFetch<
+    (SanityPostBase & { image?: { asset?: { _ref?: string } }; excerpt?: string })[]
+  >(RELATED_ARTICLES_QUERY, { category, slug })
 
   const articles: ArticleCard[] = data
     .filter((item) => item.slug?.current && item.image?.asset?._ref)

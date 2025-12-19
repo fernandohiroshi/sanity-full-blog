@@ -1,6 +1,8 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 const AboutSection = () => {
   return (
@@ -8,10 +10,10 @@ const AboutSection = () => {
       <div className="max grid gap-8 lg:grid-cols-2 items-center">
         <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-neutral-200 dark:bg-neutral-800">
           <Image
-            src="https://plus.unsplash.com/premium_photo-1664297951506-135f601fefbb?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Silhueta de uma mulher sorrindo, representando Silvana Canal"
+            src="/about.webp"
+            alt="Silhueta de uma pessoa sorrindo, representando a equipe do Blog"
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
             sizes="(min-width: 1024px) 460px, 100vw"
           />
         </div>
@@ -20,36 +22,42 @@ const AboutSection = () => {
           <p className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-foreground uppercase">
             Sobre
           </p>
-          <div className="space-y-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+          <div className="space-y-3 text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed text-justify">
             <p>
-              Eu garanto que você tem uma história pra contar. Sobre a sua vida, dos seus filhos ou
-              aquela viagem incrível que nunca mais irá esquecer. Então, também quero ter a honra:
-              deixa eu te contar um pouco da minha história.
+              O Blog é uma agência de notícias independente baseada em Foz do Iguaçu, dedicada a
+              contar as histórias que movem a Tríplice Fronteira. Aqui você encontra reportagens,
+              bastidores e análises sobre turismo, cultura, economia local e o dia a dia de quem
+              vive e visita a região.
             </p>
             <p>
-              Sou jornalista de formação e há mais de três décadas atuo em comunicação e marketing.
-              Passei pelo jornalismo diário impresso, rádio e televisão. Nos últimos 15 anos,
-              mergulhei de vez na assessoria de imprensa para o setor de turismo e hotelaria em Foz
+              Nosso time reúne jornalistas e comunicadores apaixonados por informação de qualidade.
+              Acompanhamos de perto o setor de turismo, hotelaria, gastronomia, eventos e os
+              principais temas que influenciam a rotina de moradores e viajantes que passam por Foz
               do Iguaçu.
             </p>
             <p>
-              Essa bagagem me levou por empresas públicas e privadas, como Secretaria Municipal de
-              Turismo, Iguassu Convention &amp; Visitors Bureau, hotéis, restaurantes e diferentes
-              ministérios de governos do Brasil e Paraguai. Na Tríplice Fronteira, o leque se abriu
-              ainda mais, com projetos também na Argentina e no Paraguai.
+              Entre uma pauta e outra, buscamos destacar projetos, pessoas e iniciativas que
+              transformam a cidade, sempre com olhar atento às boas histórias que merecem ser
+              registradas. Das cataratas às periferias, dos grandes eventos às pequenas conquistas
+              do cotidiano.
             </p>
             <p>
-              Dentro dessa experiência, ajudei executivos do turismo a desenvolver marketing pessoal
-              nas mídias tradicionais e digitais, organizei eventos em diversas áreas e, mais
-              recentemente, navego pelo marketing comercial.
-            </p>
-            <p>
-              Viu só quantas mudanças ao longo de uma vida? E você, o que tem de bom para me contar?
-              Estou à disposição para ouvir. Vamos tomar um café?
+              A cada nova publicação, queremos aproximar você do que acontece aqui — seja por meio
+              de artigos, coberturas especiais ou dicas para aproveitar melhor tudo o que a região
+              oferece.
             </p>
           </div>
 
-          <p className="text-xs sm:text-sm font-medium">Silvana Canal</p>
+          <div className="flex justify-end">
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full px-5 py-2 text-xs sm:text-sm font-medium hover:bg-muted"
+              size="sm"
+            >
+              <Link href="/blog">Ver notícias</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

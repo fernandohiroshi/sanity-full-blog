@@ -88,7 +88,7 @@ const Header = () => {
              focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2"
         >
           <AuroraText className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight">
-            Silvana Canal
+            Blog
           </AuroraText>
 
           <span
