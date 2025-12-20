@@ -89,7 +89,7 @@ export const SideMenu = () => {
         <div className="mt-auto space-y-3 pt-3 sm:pt-4 text-xs">
           <div className="flex justify-center">
             <Link
-              href="http://localhost:3333"
+              href="https://silvanacanal.sanity.studio/"
               target="_blank"
               rel="noreferrer"
               aria-label="Abrir painel CMS"
