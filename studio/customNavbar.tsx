@@ -3,7 +3,7 @@ import {Flex, Box, Button} from '@sanity/ui'
 import {Home} from 'lucide-react'
 
 export const CustomNavbar = (props: NavbarProps) => {
-  const siteUrl = 'http://localhost:3000/'
+  const siteUrl = 'https://silvanacanal.vercel.app/'
 
   return (
     <Flex paddingX={3} align="center" gap={2}>
